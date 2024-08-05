@@ -1,0 +1,32 @@
+{
+  "name": "naddr",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "naddr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "naddr": "bin/naddr.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nostrapps/naddr.git"
+  },
+  "keywords": [
+    "nostr",
+    "app",
+    "naddr"
+  ],
+  "author": "Melvin Carvalho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nostrapps/naddr/issues"
+  },
+  "homepage": "https://github.com/nostrapps/naddr#readme",
+  "dependencies": {
+    "bech32": "^2.0.0",
+    "commander": "^12.1.0"
+  }
+}
