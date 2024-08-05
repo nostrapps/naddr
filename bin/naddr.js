@@ -4,19 +4,19 @@ import { program } from 'commander'
 import { bech32 } from 'bech32'
 
 // Function to convert string to Uint8Array
-function stringToUint8Array(str) {
+function stringToUint8Array (str) {
   return new TextEncoder().encode(str)
 }
 
 // Function to convert a number to 32-bit big-endian Uint8Array
-function toBigEndianUint8Array(num) {
+function toBigEndianUint8Array (num) {
   const buffer = new ArrayBuffer(4)
   new DataView(buffer).setUint32(0, num, false)
   return new Uint8Array(buffer)
 }
 
 // Function to encode TLV items
-function encodeTLV(identifier, authorPubkey, kind, relay) {
+function encodeTLV (identifier, authorPubkey, kind, relay) {
   const tlvItems = []
 
   // Encode identifier
@@ -41,11 +41,11 @@ function encodeTLV(identifier, authorPubkey, kind, relay) {
 }
 
 // Function to encode naddr
-function encodeNaddr(identifier, authorPubkeyHex, kind, relay) {
+function encodeNaddr (identifier, authorPubkeyHex, kind, relay) {
   const authorPubkey = Buffer.from(authorPubkeyHex, 'hex')
   const tlv = encodeTLV(identifier, authorPubkey, kind, relay)
   const words = bech32.toWords(tlv)
-  return bech32.encode('naddr', words)
+  return bech32.encode('naddr', words, 1000)
 }
 
 program
