@@ -1,7 +1,7 @@
 {
   "name": "naddr",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "naddr",
   "main": "index.js",
   "scripts": {
