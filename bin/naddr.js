@@ -37,7 +37,7 @@ function encodeTLV(identifier, authorPubkey, kind, relay) {
   }
 
   // Concatenate all TLV items
-  return Buffer.concat(tlvItems)
+  return Buffer.concat(tlvItems.map(item => Buffer.from(item)))
 }
 
 // Function to encode naddr
@@ -45,7 +45,7 @@ function encodeNaddr(identifier, authorPubkeyHex, kind, relay) {
   const authorPubkey = Buffer.from(authorPubkeyHex, 'hex')
   const tlv = encodeTLV(identifier, authorPubkey, kind, relay)
   const words = bech32.toWords(tlv)
-  return bech32.encode('naddr', words, 1000)
+  return bech32.encode('naddr', words)
 }
 
 program
@@ -58,7 +58,7 @@ program
   .option('-r, --relay <url>', 'relay URL')
   .action((options) => {
     try {
-      const encodedNaddr = encodeNaddr(options.identifier, options.pubkey, options.kind, options.relay)
+      const encodedNaddr = encodeNaddr(options.dtag, options.pubkey, options.kind, options.relay)
       console.log(encodedNaddr)
     } catch (error) {
       console.error('Error encoding NAddr:', error.message)
