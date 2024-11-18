@@ -61,7 +61,7 @@ naddr -d <identifier> -p <pubkey> -k <kind> [-r <relay>]
 ### Example
 
 ```bash
-naddr -i myprofile -p 3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d -k 1234 -r wss://example.com
+naddr -d myprofile -p 3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d -k 1234 -r wss://example.com
 ```
 
 This command will output the encoded NAddr string.
